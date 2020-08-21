@@ -38,6 +38,19 @@ ifeq ($(SUB_PROJECT),chipyard)
 	TB                ?= TestDriver
 	TOP               ?= ChipTop
 endif
+
+#REDEFINE
+ifeq ($(SUB_PROJECT),redefine)
+	SBT_PROJECT       ?= redefine
+	MODEL             ?= TestHarness
+	VLOG_MODEL        ?= TestHarness
+	MODEL_PACKAGE     ?= $(SBT_PROJECT)
+	CONFIG            ?= REDEFINEConfig
+	CONFIG_PACKAGE    ?= $(SBT_PROJECT)
+	GENERATOR_PACKAGE ?= $(SBT_PROJECT)
+	TB                ?= TestDriver
+	TOP               ?= REDEFINESystem
+endif
 # for Hwacha developers
 ifeq ($(SUB_PROJECT),hwacha)
 	SBT_PROJECT       ?= chipyard

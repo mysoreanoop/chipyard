@@ -128,6 +128,9 @@ lazy val iocell = (project in file("./tools/barstools/iocell/"))
   .dependsOn(chisel)
   .settings(commonSettings)
 
+lazy val redefine = conditionalDependsOn(project in file("generators/redefine"))
+	.settings(commonSettings)
+
 lazy val chipyard = conditionalDependsOn(project in file("generators/chipyard"))
   .dependsOn(boom, hwacha, sifive_blocks, sifive_cache, utilities, iocell,
     sha3, // On separate line to allow for cleaner tutorial-setup patches
